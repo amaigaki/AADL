@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "35078312362",
+    "firebase_url": "https://merchantlogin-c67f4.firebaseio.com",
+    "project_id": "merchantlogin-c67f4",
+    "storage_bucket": "merchantlogin-c67f4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35078312362:android:00bd409abdfc4dcdac9bd3",
+        "android_client_info": {
+          "package_name": "com.example.merchant_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "35078312362-14fdhrpq8487rmmp6fq0joapngj489jk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2N4MzM6BnsvLhI-_F5VjUNASzrHmGeAs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "35078312362-14fdhrpq8487rmmp6fq0joapngj489jk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
