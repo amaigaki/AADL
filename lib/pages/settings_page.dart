@@ -28,7 +28,7 @@ class Setting extends StatelessWidget {
                         //open edit profile
                       },
                       title: Text(
-                        "Amey Sawant",
+                        "Bambi67",
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,

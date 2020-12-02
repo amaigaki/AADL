@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
 
 class DashboardPage extends StatelessWidget {
   final TextStyle whiteText = TextStyle(color: Colors.white);
+  var data;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,6 +14,11 @@ class DashboardPage extends StatelessWidget {
   }
 
   Widget _buildBody(BuildContext context) {
+    @override
+    void initState() async {
+      var url = "http://127.0.0.1:5000/";
+      data = await http.get(url);
+    }
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -20,7 +28,7 @@ class DashboardPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 16.0),
             child: Text(
-              "Appointments",
+              "Deliveries",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0),
             ),
           ),
@@ -65,11 +73,11 @@ class DashboardPage extends StatelessWidget {
                       ),
                     ),
                     title: Text(
-                      "Today",
+                      "Complete",
                       style: TextStyle(fontSize: 18),
                     ),
                     subtitle: Text(
-                      "8",
+                      data.pieChart.first,
                       style: TextStyle(fontSize: 25),
                     ),
                   ),
@@ -114,7 +122,7 @@ class DashboardPage extends StatelessWidget {
                       style: TextStyle(fontSize: 18),
                     ),
                     subtitle: Text(
-                      "3",
+                      data.pieChart.second,
                       style: TextStyle(fontSize: 25),
                     ),
                   ),
@@ -130,8 +138,8 @@ class DashboardPage extends StatelessWidget {
                   child: _buildTile(
                     color: Colors.pink,
                     icon: Icons.portrait,
-                    title: "Number of Attendees",
-                    data: "1200",
+                    title: "Number of Orders",
+                    data: data.forecastChart.orders,
                   ),
                 ),
                 const SizedBox(width: 16.0),
@@ -139,8 +147,8 @@ class DashboardPage extends StatelessWidget {
                   child: _buildTile(
                     color: Colors.green,
                     icon: Icons.person,
-                    title: "Attended",
-                    data: "850",
+                    title: "Delivered",
+                    data: data.htmlElements.noofcustomers,
                   ),
                 ),
                 const SizedBox(width: 16.0),
@@ -148,8 +156,8 @@ class DashboardPage extends StatelessWidget {
                   child: _buildTile(
                     color: Colors.blueGrey,
                     icon: Icons.person_outline,
-                    title: "Not Attended",
-                    data: "350",
+                    title: "Not Delivered",
+                    data: data.forecastChart.orders - data.htmlElements.noofcustomers,
                   ),
                 ),
               ],
@@ -165,7 +173,7 @@ class DashboardPage extends StatelessWidget {
                     color: Colors.redAccent,
                     icon: Icons.attach_money,
                     title: "Cash",
-                    data: "430",
+                    data: data.paymentChart.cash,
                   ),
                 ),
                 const SizedBox(width: 16.0),
@@ -174,7 +182,7 @@ class DashboardPage extends StatelessWidget {
                     color: Colors.orange,
                     icon: Icons.account_balance,
                     title: "Check",
-                    data: "80",
+                    data: data.paymentChart.other,
                   ),
                 ),
                 const SizedBox(width: 16.0),
@@ -183,7 +191,7 @@ class DashboardPage extends StatelessWidget {
                     color: Colors.blue,
                     icon: Icons.payment,
                     title: "Online",
-                    data: "340",
+                    data: data.paymentChart.online,
                   ),
                 ),
               ],
@@ -223,19 +231,11 @@ class DashboardPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 16.0),
             child: Text(
-              "Amey Sawant",
+              "Bambi67",
               style: whiteText.copyWith(
                 fontSize: 18.0,
                 fontWeight: FontWeight.w500,
               ),
-            ),
-          ),
-          const SizedBox(height: 5.0),
-          Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: Text(
-              "Android Developer",
-              style: whiteText,
             ),
           ),
         ],

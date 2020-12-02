@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import '../pages/dashboard_page.dart';
 import '../pages/settings_page.dart';
-import '../pages/appointments_page.dart';
-import '../pages/history_page.dart';
+import '../pages/Locations_page.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class MyHome extends StatefulWidget {
@@ -34,8 +33,7 @@ class _MyHomeState extends State<MyHome> {
           },
           children: <Widget>[
             DashboardPage(),
-            Appointment(),
-            History(),
+            Location(),
             Setting(),
           ],
         ),

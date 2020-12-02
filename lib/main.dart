@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:merchant_app/pages/login_page.dart';
-// import 'package:firebase_core/firebase_core.dart';
 
 void main() => runApp(new MyApp());
 
@@ -12,12 +11,13 @@ class MyApp extends StatelessWidget {
         return Navigator.canPop(context);
       },
       child: MaterialApp(
-        title: 'TheGorgeousLogin',
+        title: 'merchantApp',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.red,
         ),
         home: LoginPage(),
       ),
     );
   }
 }
+

@@ -134,7 +134,7 @@ class _LoginPageState extends State<LoginPage>
   @override
   void initState() {
     super.initState();
-    // _auth.signOut();
+    _auth.signOut();
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
@@ -339,7 +339,7 @@ class _LoginPageState extends State<LoginPage>
                   onPressed: () async {
                     try {
                       await Firebase.initializeApp()
-                          .whenComplete(() => print("Initialized lol"));
+                          .whenComplete(() => print("successfully Initialized"));
                       final newUser = await _auth.signInWithEmailAndPassword(
                           email: loginEmailController.text,
                           password: loginPasswordController.text);
@@ -652,7 +652,25 @@ class _LoginPageState extends State<LoginPage>
                             fontFamily: "WorkSansBold"),
                       ),
                     ),
-                    onPressed: () => showInSnackBar("SignUp button pressed")),
+                    onPressed: () async {
+                      try {
+                        await Firebase.initializeApp()
+                            .whenComplete(() => print("successfully Initialized sign up"));
+                            UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                            email: signupEmailController.text,
+                            password: signupPasswordController.text
+                            );
+                      } on FirebaseAuthException catch (e) {
+                          if (e.code == 'weak-password') {
+                          print('The password provided is too weak.');
+                          } else if (e.code == 'email-already-in-use') {
+                          print('The account already exists for that email.');
+                          }
+                          } catch (e) {
+                            print(e);
+                          }
+                    }
+                ),
               ),
             ],
           ),

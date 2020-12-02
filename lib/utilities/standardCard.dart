@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 
 class StandardCard extends StatelessWidget {
-  final String holderName;
-  final int confNumber;
-  final String date;
-  final int revenue;
-  final String time;
+  final String latitude;
+  final String longitude;
+  final String elapsedTime;
+  final String tag;
 
   StandardCard({
-    @required this.holderName,
-    @required this.confNumber,
-    @required this.date,
-    @required this.revenue,
-    @required this.time,
+    @required this.latitude,
+    @required this.longitude,
+    @required this.elapsedTime,
+    @required this.tag,
   });
 
   @override
@@ -34,7 +32,7 @@ class StandardCard extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
               children: <Widget>[
                 Text(
-                  'Holder Name',
+                  'Lat',
                   style: TextStyle(
                     color: Colors.white70,
                     fontWeight: FontWeight.w600,
@@ -42,7 +40,7 @@ class StandardCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  holderName,
+                  latitude,
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
@@ -53,7 +51,7 @@ class StandardCard extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  'Conference Room: $confNumber',
+                  'Lng: $longitude',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
@@ -75,7 +73,7 @@ class StandardCard extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              'Revenue',
+                              'Elapsed time: <',
                               style: TextStyle(
                                 color: Colors.white70,
                                 fontSize: 15,
@@ -83,7 +81,7 @@ class StandardCard extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              revenue.toString(),
+                              elapsedTime,
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
@@ -101,7 +99,7 @@ class StandardCard extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              'Date',
+                              '',
                               style: TextStyle(
                                 color: Colors.white70,
                                 fontSize: 15,
@@ -109,34 +107,7 @@ class StandardCard extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              date,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: Container(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: <Widget>[
-                            Text(
-                              'Time',
-                              style: TextStyle(
-                                color: Colors.white70,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            Text(
-                              time,
+                              tag,
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
@@ -173,9 +144,3 @@ class StandardCard extends StatelessWidget {
   }
 }
 
-//     String amount
-//     String cardNumber
-//     String cardHolder
-//     String expiringDate
-//     String bankEnding
-//     Color backgroundColor
